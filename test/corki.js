@@ -16,9 +16,12 @@ describe('Corki', function() {
         expect(corki.key).to.equal('test');
     });
 
-    xit('should throw an error if no key is defined', function() {
-        corki = new Corki({});
-        expect(corki).to.throw(Error);
+    it('should throw an error if no key is defined', function() {
+        var badConstructor = function() {
+            return new Corki({});
+        };
+
+        expect(badConstructor).to.Throw(Error);
     });
 
     it('should return a debug object if set to true', function() {
@@ -57,6 +60,19 @@ describe('Corki', function() {
             });
 
             expect(url).to.equal('https://eune.api.pvp.net/api/lol/euw/test/?api_key=test');
+        });
+    });
+
+    describe('getSummonerByName', function() {
+        it('should only accept a string for the name object', function() {
+            corki = new Corki({
+                key: 'test',
+                debug: true
+            });
+
+            corki.getSummonerByName('euw', 23).catch(function(error) {l
+                expect(error).to.equal('Name should be a string');
+            })
         });
     });
 });

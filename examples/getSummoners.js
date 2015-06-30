@@ -7,6 +7,7 @@ const corki = new Corki({
     debug: false
 });
 
+// Get data from my own Summoner name
 corki.getSummonerByName('euw', 'James Cameron').then(function(data) {
     return JSON.parse(data);
 }).then(function(data) {
@@ -15,6 +16,7 @@ corki.getSummonerByName('euw', 'James Cameron').then(function(data) {
     console.error(err);
 });
 
+// Get a bunch of data from an array of summoner names.
 corki.getSummonersByNames('euw', ['James Cameron', 'AT AwesomePossum', 'Sannens']).then(function(data) {
     return JSON.parse(data);
 }).then(function(data) {
@@ -23,9 +25,11 @@ corki.getSummonersByNames('euw', ['James Cameron', 'AT AwesomePossum', 'Sannens'
     for (var prop in data) {
         result.push(data[prop]);
     }
-    
+
     console.log(result);
     return result;
 }).catch(function(err) {
     console.error(err);
 });
+
+corki.getChampions()
