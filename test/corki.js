@@ -70,9 +70,9 @@ describe('Corki', function() {
                 debug: true
             });
 
-            corki.getSummonerByName('euw', 23).catch(function(error) {l
+            corki.getSummonerByName('euw', 23).catch(function(error) {
                 expect(error).to.equal('Name should be a string');
-            })
+            });
         });
     });
 });
