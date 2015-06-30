@@ -31,5 +31,3 @@ corki.getSummonersByNames('euw', ['James Cameron', 'AT AwesomePossum', 'Sannens'
 }).catch(function(err) {
     console.error(err);
 });
-
-corki.getChampions()
